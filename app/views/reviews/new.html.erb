@@ -1,7 +1,7 @@
-<h1>Add a review for @restaurant.name </h1>
+<h1>Add a review for <%= @restaurant.name %></h1>
 
 <%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :rating %>
+  <%= f.collection_radio_buttons :rating, [[0, "0"], [1, '1'], [2, '2'], [3, '3'], [4, '4'], [5, '5']], :first, :last %>
   <%= f.input :content %>
   <%= f.submit class:"btn btn-primary" %>
 <% end %>
