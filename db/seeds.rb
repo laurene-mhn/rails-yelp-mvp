@@ -9,9 +9,9 @@
 10.times do
   restaurant = Restaurant.new(
     name: Faker::Restaurant.name,
-    address: Faker::Internet.url,
-    phone_number: rand(0..1)
-    category:
+    address: Faker::Address.city,
+    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample,
   )
-  post.save!
+  restaurant.save!
 end
